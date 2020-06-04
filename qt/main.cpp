@@ -80,7 +80,8 @@ void Test4()
 	printf("value: %s, qvalue: %s\n", value.toStdString().c_str(), qvalue.toStdString().c_str());
 }
 
-void Test5()
+//void Test5(QVector<float> *vector)
+void Test5(QVector<float>& vector)
 {
 	QVector<float> vector1;
 	QVector<float> vector2;
@@ -94,6 +95,9 @@ void Test5()
 	for(int i=0; i<vector2.count(); i++)
 		printf("%f ", vector2[i]);
 	printf("\n");
+	
+	//*vector = vector2;
+	vector = vector2;
 }
 
 void Test6()
@@ -123,7 +127,12 @@ int main(int argc, char *argv[])
 	//Test4();
 	
 	// 5 QVector
-	Test5();
+	QVector<float> vector;
+	//Test5(&vector);
+	Test5(vector);
+	for(int i=0; i<vector.count(); i++)
+		printf("%f ", vector[i]);
+	printf("\n");
 	
 	// 6 NAN
 	//Test6();
